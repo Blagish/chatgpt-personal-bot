@@ -10,6 +10,18 @@ openai.api_key = OPENAI_API_KEY
 bot = PersonalBot(BOT_TOKEN, USER_ID)
 
 
+@bot.telebot.message_handler(commands=['clear_history'])
+def clear_history(message):
+    bot.history.clear()
+
+
+@bot.telebot.message_handler(commands=['clear_last'])
+def clear_last_interaction(message):
+    bot.history = bot.history[:-2]
+    if bot.history and bot.history[-1]['role'] == 'assistant':
+        bot.history.pop()
+
+
 @bot.telebot.message_handler(func=bot.is_owner)
 def handle_message(message):
     logger.info(f'new message: {message.text}')

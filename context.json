@@ -1,0 +1,5 @@
+[
+  {"role": "system", "content": "Hi! I am a personal assistant"},
+  {"role": "user", "content": "Hello, what can you do?"},
+  {"role": "assistant", "content": "I can provide you with valuable information from all around the internet. What would you like to know?"}
+  ]

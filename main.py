@@ -18,7 +18,7 @@ def clear_history(message):
 @bot.telebot.message_handler(commands=['clear_last'])
 def clear_last_interaction(message):
     bot.history = bot.history[:-2]
-    if bot.history and bot.history[-1]['role'] == 'assistant':
+    if bot.history and bot.history[-1]['role'] == 'user':
         bot.history.pop()
 
 
